@@ -1,0 +1,60 @@
+#!/bin/bash
+
+s=""	
+while test "$s" != "5"
+do
+
+echo "MENU:"
+echo "1. Information about the author"
+echo "2. Calculate the mathematical expression"
+echo "3. Copy files with your extension to the folder <<BackUp>>"
+echo "4. Enter a username and check it"
+echo "5. Exit"
+echo "--------------"
+
+echo -n "Chose a menu punct:"
+read s
+
+if test $s = "1"
+then
+echo "Kozlov Oleg Viktorovich,group ITP-11"
+fi
+ 
+if test $s = "2"
+then
+echo -n "Enter your number from the class journal:"
+read n
+echo -n "Enter a number of your computer:"
+read nc
+echo -n "Enter your age:"
+read a
+x=$(( ($n + $nc) * $a ))
+echo "The result of the expression x=(n + nc) * a is $x" 
+fi
+
+if test $s = "3"
+then
+echo -n "Enter file extension:"
+read ext
+echo -n "Enter file location:"
+read loc
+
+cp $loc/*.$ext /home/max/tmp/BackUp
+echo "Files are successfully copied!"
+
+fi
+
+if test $s = "4"
+then
+echo -n "Enter a username:"
+read un
+if test "$un" = `whoami`
+then
+echo "true"
+else
+echo "false"
+fi
+echo "4"
+fi
+
+done
